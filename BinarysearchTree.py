@@ -1,3 +1,6 @@
+
+#BINARY SEARCH TREE IMPLEMENTATION
+
 class Node:
     def __init__(self,data):
         self.data=data
@@ -30,6 +33,25 @@ class Node:
         if self.right:
             self.right.display()
 
+    #SEARCHING
+
+    def search(self,key):
+        if self.data==key:
+            print(key," is Found")
+            return
+        elif self.data>key:
+            if self.left:
+                self.left.search(key)
+            else:
+                print(key,"is not found")
+        else:
+            if self.right:
+                self.right.search(key)
+            else:
+                print(key,"is not found")
+
+
+
 root=Node(30)
 root.insert(12)
 root.insert(20)
@@ -39,3 +61,6 @@ root.insert(56)
 root.insert(6)
 root.insert(40)
 root.display()
+print("/n")
+key=int(input("Enter key value"))
+root.search(key)
